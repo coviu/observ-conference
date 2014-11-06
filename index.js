@@ -20,6 +20,18 @@ var extend = require('cog/extend');
 module.exports = function(conference, opts) {
   var participants = ObservArray([]);
 
+  function findById(id) {
+    var idx = 0;
+    var len = participants.getLength();
+    while (idx < len && participants.get(idx).id() !== id) {
+      idx++;
+    }
+
+    if (idx < len) {
+      return participants.get(idx);
+    }
+  }
+
   function removePeer(id) {
     participants.transaction(function(raw) {
       var idx = 0;
@@ -33,8 +45,22 @@ module.exports = function(conference, opts) {
     });
   }
 
+  function streamAdd(id, stream) {
+    var peer = findById(id);
+    if (peer) {
+      peer.streams.push(stream);
+    }
+  }
+
+  function streamRemove(id) {
+  }
+
   function updatePeer(id, data, connected) {
-    var p = { id: id, connected: Observ(connected) };
+    var p = {
+      id: id,
+      streams: ObservArray([]),
+      connected: Observ(connected)
+    };
 
     participants.transaction(function(raw) {
       var idx = 0;
@@ -100,22 +126,14 @@ module.exports = function(conference, opts) {
   });
 
   conference.on('call:started', function(id, pc, data) {
-    updatePeer(id, data, true);
+    updatePeer(id, extend({ connection: pc }, data), true);
   });
 
+  conference.on('stream:added', streamAdd);
+  conference.on('stream:removed', streamRemove);
   conference.on('call:ended', removePeer);
 
-  participants.findById = function(id) {
-    var idx = 0;
-    var len = participants.getLength();
-    while (idx < len && participants.get(idx).id() !== id) {
-      idx++;
-    }
-
-    if (idx < len) {
-      return participants.get(idx);
-    }
-  };
+  participants.findById = findById;
 
   return participants;
 };
