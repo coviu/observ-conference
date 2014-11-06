@@ -49,6 +49,15 @@ module.exports = function(conference, opts) {
     var peer = findById(id);
     if (peer) {
       peer.streams.push(stream);
+
+      stream.addEventListener('ended', function() {
+        peer.streams.transaction(function(raw) {
+          var idx = raw.indexOf(stream);
+          if (idx >= 0) {
+            raw.splice(idx, 1);
+          }
+        });
+      });
     }
   }
 
