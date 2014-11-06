@@ -80,6 +80,10 @@ module.exports = function(conference, opts) {
 
         raw.push(ObservStruct(p));
       }
+
+      raw.sort(function(a, b) {
+        return a.id().localeCompare(b.id());
+      });
     });
   }
 
