@@ -25,6 +25,7 @@
   "homepage": "https://github.com/DamonOehlman/observ-conference",
   "dependencies": {
     "cog": "^1.0.0",
+    "cuid": "^1.2.4",
     "observ": "^0.2.0",
     "observ-array": "^3.1.0",
     "observ-struct": "^6.0.0"

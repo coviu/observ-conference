@@ -21,8 +21,8 @@ test('can create an observable conference instance', function(t) {
 test('get a state update when we announce ourselves', function(t) {
   t.plan(2);
   var stop = conference(function(data) {
-    t.equal(data.length, 1);
-    t.equal(data[0].username, 'Fred');
+    t.equal(data.peers.length, 1);
+    t.equal(data.peers[0].username, 'Fred');
     stop();
   });
 
@@ -33,7 +33,7 @@ test('create another signaller', function(t) {
   t.plan(1);
 
   var stop = conference(function(data) {
-    t.equal(data.length, 2);
+    t.equal(data.peers.length, 2);
     stop();
   });
 
@@ -45,7 +45,7 @@ test('update signaller:1 details', function(t) {
   t.plan(1);
 
   var stop = conference(function(data) {
-    t.equal(data.length, 2);
+    t.equal(data.peers.length, 2);
     stop();
   });
 
@@ -56,8 +56,8 @@ test('update signaller:1 details with no change contains an empty diff', functio
   t.plan(2);
 
   var stop = conference(function(data) {
-    t.deepEqual(data._diff, []);
-    t.equal(data.length, 2);
+    t.deepEqual(data._diff, { peers: [] });
+    t.equal(data.peers.length, 2);
     stop();
   });
 
@@ -68,7 +68,7 @@ test('we can locate a participant by id', function(t) {
   var found;
 
   t.plan(1);
-  found = conference.findById(signallers[1].id);
+  found = conference.peers.findById(signallers[1].id);
   t.ok(found && found.username() === 'Tim', 'found');
 });
 
