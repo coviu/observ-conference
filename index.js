@@ -48,12 +48,12 @@ module.exports = function(conference, opts) {
           return true;
         }).length !== keys.length;
 
+        // toggle the connection state
+        p.connected.set(connected || raw[idx].connected());
+        raw[idx].connected.set(connected || raw[idx].connected());
+
         if (insertPeer) {
           raw.splice(idx, 1);
-        }
-        else {
-          // toggle the connection state
-          raw[idx].connected.set(connected || raw[idx].connected());
         }
       }
 
