@@ -84,7 +84,7 @@ module.exports = function(conference, opts) {
   }
 
   conference.on('local:announce', function(data) {
-    updatePeer(data.id, data, true);
+    updatePeer(data.id, extend({ local: true }, data), true);
   });
 
   conference.on('peer:announce', function(data) {
