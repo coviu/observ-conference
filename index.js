@@ -3,6 +3,20 @@ var ObservArray = require('observ-array');
 var ObservStruct = require('observ-struct');
 var extend = require('cog/extend');
 
+/**
+  # observ-conference
+
+  An experimental implementation of an
+  [Observ](https://github.com/Raynos/Observ) that works with an
+  [rtc-quickconnect](https://github.com/rtc-io/rtc-quickconnect) conference
+  instance.
+
+  ## Example Usage
+
+  To be completed.
+
+**/
+
 module.exports = function(conference, opts) {
   var participants = ObservArray([]);
 
@@ -49,8 +63,10 @@ module.exports = function(conference, opts) {
         }).length !== keys.length;
 
         // toggle the connection state
-        p.connected.set(connected || raw[idx].connected());
-        raw[idx].connected.set(connected || raw[idx].connected());
+        if (connected || raw[idx].connected()) {
+          p.connected.set(true);
+          raw[idx].connected.set(true);
+        }
 
         if (insertPeer) {
           raw.splice(idx, 1);
