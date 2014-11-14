@@ -28,7 +28,14 @@ module.exports = function(conference, opts) {
   function findById(id) {
     var idx = 0;
     var len = peers.getLength();
-    while (idx < len && peers.get(idx).id() !== id) {
+    var peer;
+
+    while (idx < len) {
+      peer = peers.get(idx);
+      if ((typeof peer.uid == 'function' && peer.uid() === id) || peer.id() === id) {
+        break;
+      }
+
       idx++;
     }
 
