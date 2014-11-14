@@ -1,5 +1,5 @@
 var http = require('http');
-var server = http.createServer();
+var server =  module.exports = http.createServer();
 var port = process.env.ZUUL_PORT || process.env.PORT;
 var switchboard = require('rtc-switchboard')(server, { servelib: true });
 
