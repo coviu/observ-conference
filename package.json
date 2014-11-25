@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DamonOehlman/observ-conference.git"
+    "url": "https://github.com/rtc-io/observ-conference.git"
   },
   "keywords": [
     "webrtc",
     "rtc.io",
     "observable"
   ],
-  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
-  "license": "ISC",
+  "author": "Damon Oehlman <damon.oehlman@nicta.com.au>",
+  "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/DamonOehlman/observ-conference/issues"
+    "url": "https://github.com/rtc-io/observ-conference/issues"
   },
-  "homepage": "https://github.com/DamonOehlman/observ-conference",
+  "homepage": "https://github.com/rtc-io/observ-conference",
   "dependencies": {
     "cog": "^1.0.0",
     "cuid": "^1.2.4",
