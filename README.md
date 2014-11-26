@@ -5,6 +5,10 @@ An experimental implementation of an
 [rtc-quickconnect](https://github.com/rtc-io/rtc-quickconnect) conference
 instance.
 
+__NOTE:__ This was some early experimentation around combining rtc.io
+packages and observables.  We are working on an implementation which
+is generally more useful...
+
 
 [![NPM](https://nodei.co/npm/observ-conference.png)](https://nodei.co/npm/observ-conference/)
 
