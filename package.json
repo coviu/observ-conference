@@ -34,7 +34,7 @@
     "rtc-signaller": "^5.2.1",
     "rtc-switchboard": "^2.1.0",
     "rtc-switchboard-messenger": "^1.0.0",
-    "tape": "^3.0.2",
+    "tape": "^4.0.0",
     "uuid": "^2.0.1"
   },
   "testling": {
