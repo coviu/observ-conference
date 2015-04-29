@@ -31,7 +31,7 @@
     "observ-struct": "^6.0.0"
   },
   "devDependencies": {
-    "rtc-signaller": "^5.2.1",
+    "rtc-signaller": "^6.2.0",
     "rtc-switchboard": "^2.1.0",
     "rtc-switchboard-messenger": "^1.0.0",
     "tape": "^4.0.0",
