@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rtc-io/observ-conference.git"
+    "url": "https://github.com/coviu/observ-conference.git"
   },
   "keywords": [
     "webrtc",
@@ -20,9 +20,9 @@
   "author": "Damon Oehlman <damon.oehlman@nicta.com.au>",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/rtc-io/observ-conference/issues"
+    "url": "https://github.com/coviu/observ-conference/issues"
   },
-  "homepage": "https://github.com/rtc-io/observ-conference",
+  "homepage": "https://github.com/coviu/observ-conference",
   "dependencies": {
     "cog": "^1.0.0",
     "cuid": "^1.2.4",
